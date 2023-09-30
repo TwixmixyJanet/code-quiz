@@ -49,3 +49,6 @@ button:hover {
 #highscores {
     display: none;
 }
+#answer {
+    display: none;
+}

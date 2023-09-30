@@ -25,25 +25,25 @@ var introContainer = document.querySelector("#intro-container");
 var quizContainer = document.querySelector("#quiz-container");
 var quizQuestion = document.querySelector("#quiz-question");
 var answerList = document.querySelector("#answer-list");
-var answerOption = document.querySelector("options");
-var answer1 = document.querySelector("answer1");
-var answer2 = document.querySelector("answer2");
-var answer3 = document.querySelector("answer3");
-var answer4 = document.querySelector("answer4");
-var answer = document.querySelector("answer");
+var answerOption = document.querySelectorAll(".options");
+var answer1 = document.querySelector("#answer1");
+var answer2 = document.querySelector("#answer2");
+var answer3 = document.querySelector("#answer3");
+var answer4 = document.querySelector("#answer4");
+var answer = document.querySelector("#answer");
 var inputScore = document.querySelector("#input-score");
 var scoreHeader = document.querySelector("#score-header");
 var yourScore = document.querySelector("#your-score");
 var inputInitials = document.querySelector("#input-initials");
 var submitButton = document.querySelector("#submit-button");
-var highscores = document.getElementById("#highscores");
+var highscores = document.querySelector("#highscores");
 var yourRecord = document.querySelector("#your-record");
 var returnButton = document.querySelector("#return-button");
 var clearResults = document.querySelector("#clear-results");
 //////////////////////////////////////////
 
 // GLOBAL VARIABLES
-var timeRemainingSecs = 15; // update to be more time when it's done
+var timeRemainingSecs = 50; // update to be more time when it's done
 var questionNum = 0;
 var total = 0;
 var questionPlacement = 1;
@@ -51,29 +51,29 @@ var questionPlacement = 1;
 // QUESTIONS
 var questionArr = [
     {
-        question: "",
+        question: "Question 1",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "",
+        answer: "1. one",
     },
     {
-        question: "",
+        question: "Question 2",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "",
+        answer: "2. two",
     },
     {
-        question: "",
+        question: "Question 3",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "",
+        answer: "3. three",
     },
     {
-        question: "",
+        question: "Question 4",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "",
+        answer: "4. four",
     },
     {
-        question: "",
+        question: "Question 5",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "",
+        answer: "4. four",
     },
 ]
 
@@ -83,7 +83,7 @@ function initiateQuiz() {
     quizContainer.style.display = "block";
     questionNum = 0;
     timer();
-    displayQuestions(questionNum);
+    displayQuestion(questionNum);
 }
 
 // TIMER ITERATION
@@ -141,7 +141,7 @@ function endGame() {
     quizContainer.style.display = "none";
     timeRemaining.style.display = "none";
     inputScore.style.display = "block";
-    console.log(inputScore);
+    // console.log(inputScore);
     yourScore.textContent = `Your score is: ${total}`;
 };
 
@@ -193,23 +193,24 @@ function individualScore() {
         user: inputInitials.value,
         score: total
     }
-    addScore(individualScore);
+    addScore(eachScore);
     highScoresList();
 };
 
 startButton.addEventListener("click", initiateQuiz);
+
 answerOption.forEach(function(e) {
     e.addEventListener("click", assessAnswer)
 });
+
 submitButton.addEventListener("click", function(e) {
     e.preventDefault();
     inputScore.style.display = "none";
-    introContainer.style.display = "none";
     quizContainer.style.display = "none";
     highscores.style.display = "block";
     individualScore();
 });
-checkScore.addEventListener("click", function(e) {
+checkScore.addEventListener("click",function(e) {
     e.preventDefault();
     inputScore.style.display = "none";
     introContainer.style.display = "none";
