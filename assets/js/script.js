@@ -104,6 +104,7 @@ function timer() {
     }, 1000);
 }
 
+// INIIATE QUESTIONS
 function displayQuestion (num) {
     quizQuestion.textContent = questionArr[num].question;
     answer1.textContent = questionArr[num].options[0];
@@ -113,6 +114,7 @@ function displayQuestion (num) {
     questionNum = num;
 }
 
+// CONFIRM ANSWER
 function assessAnswer(e) {
     e.preventDefault();
     answer.style.display = "block";
@@ -137,6 +139,7 @@ function assessAnswer(e) {
     questionPlacement++;
 };
 
+// END THE GAME
 function endGame() {
     quizContainer.style.display = "none";
     timeRemaining.style.display = "none";
@@ -145,6 +148,7 @@ function endGame() {
     yourScore.textContent = `Your score is: ${total}`;
 };
 
+// RETRIEVE RESULTS
 function retrieveResult() {
     var resultsList = localStorage.getItem("resultsList");
     if (resultsList !== null) {
@@ -156,6 +160,7 @@ function retrieveResult() {
     return newList;
 };
 
+// HIGH SCORES
 function highScoresList() {
     yourRecord.innerHTML = "";
     yourRecord.style.display = "block";
@@ -170,6 +175,7 @@ function highScoresList() {
     }
 };
 
+// SORT SCORES
 function orderListSort() {
     var unorderedList = retrieveResult();
     if (retrieveResult == null) {
@@ -182,12 +188,14 @@ function orderListSort() {
     }
 };
 
+// ADD SCORES
 function addScore(num) {
     var compiledScores = retrieveResult();
     compiledScores.push(num);
     localStorage.setItem("resultsList", JSON.stringify(compiledScores));
 };
 
+// EACH SCORE
 function individualScore() {
     var eachScore = {
         user: inputInitials.value,
@@ -197,6 +205,7 @@ function individualScore() {
     highScoresList();
 };
 
+// EVENT LISTENERS
 startButton.addEventListener("click", initiateQuiz);
 
 answerOption.forEach(function(e) {
