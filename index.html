@@ -11,21 +11,52 @@
 </head>
 <body>
     <main class="main-container">
-        <section class="header">
-            <div class="highscores-container">
-                <p>High Scores</p>
-            </div>
-            <div class="timer-container">
-                <div class="timer">
-                    <p>Time Remaining: <span id="time-remaining">0</span></p>
+        <header>
+            <div>
+                <div class="highscores-container">
+                    <button class="button">High Scores</button>
                 </div>
-                <div class="timeOut">
-                    <p>😢 Sorry! You're out of time.</p>
+                <div class="timer-container">
+                    <div class="timer">
+                        <p>Time Remaining: <span id="time-remaining">0</span></p>
+                    </div>
+                    <div class="timeOut">
+                        <p class="hidden">😢 Sorry! You're out of time.</p>
+                    </div>
                 </div>
             </div>
-        </section>
-        <section class="quiz-container">
+        <header>
 
+        <section class="intro-container" id="intro-container">
+            <h1>
+                Code Quiz
+            </h1>
+            <p class="instructions">set expectations of quiz here.</p>
+            <button class="button" id="start-button">Start Quiz</button>
+        </section>
+
+        <section class="quiz-container" id="quiz-container">
+            <h2 id="quiz-question">Place Question Here</h2>
+            <ul id="answer-list">
+                <li><button class="options button" id="answer1">1. Answer</button></li>
+                <li><button class="options button" id="answer1">2. Answer</button></li>
+                <li><button class="options button" id="answer1">3. Answer</button></li>
+                <li><button class="options button" id="answer1">4. Answer</button></li>
+            </ul>
+        </section>
+
+        <section class="input-score" id="input-score">
+            <h2 id="score-header">That's a wrap!</h2>
+            <p id="your-score">Your score is: </p>
+            <p>Input Initials:
+                <input type="text" id="input-initials">
+                <button class="btn" id="submit-button">Submit</button>
+            </p>
+        </section>
+
+        <section class="highscores" id="highscores">
+            <button class="button" id="return-btn">Return to game</button>
+            <button class="button" id="clear-results">Clear Results</button>
         </section>
     </main>
 
