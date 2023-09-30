@@ -118,6 +118,7 @@ function timer() {
 }
 
 // INIIATE QUESTIONS
+// Function to populate the questions/answers to the DOM, set up with an index argument to pass through the questions array. This function keeps track of which question we are on.
 function displayQuestion (num) {
     quizQuestion.textContent = questionArr[num].question;
     answer1.textContent = questionArr[num].options[0];
@@ -130,28 +131,34 @@ function displayQuestion (num) {
 // CONFIRM ANSWER
 function assessAnswer(e) {
     console.log("did assessanswer run?")
+    // e.preventDefault implemented to prevent the default action of clicking on a button. 
     e.preventDefault();
+    // displays if the user got the previous answer correct or not, then the setTimeout removes it after a second.
     answer.style.display = "block";
     setTimeout (function() {
         answer.style.display = "none";
     }, 1000);
 
-    if (questionArr[questionNum].answer == e.target.value) {
+    // This is SUPPOSED to go into the array and find the answer for the corresponding question and check to see if the person clicked the correct one.
+    if (questionArr[questionNum].answer) {
         console.log("did if question correct run?")
         answer.textContent = "Bingo! (Correct)";
-        total += 1;
+        total = timeRemainingSecs;
 
+    // otherwise, the question is wrong and it reduces the time by 5 seconds and lets the user know it's wrong by displaying text.    
     } else {
         console.log("did if question wrong run?")
         timeRemainingSecs -= 5;
         answer.textContent = "Sorry, that's wrong."
     }
 
+    // Haven't been able to test this yet as I can't get the correct answers to function.
     if (questionNum < questionArr.length -1) {
         displayQuestion(questionNum +1);
     } else {
         endGame();
     }
+    // Increments to the next question
     questionPlacement++;
 };
 

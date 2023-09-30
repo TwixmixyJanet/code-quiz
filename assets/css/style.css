@@ -37,13 +37,18 @@ button {
 }
 
 .options {
-    width: 300px;
+    width: 400px;
     text-align: left;
 }
 
 button:hover {
     background-color: purple;
     color: azure;
+}
+
+#answer {
+    font-weight: bold;
+    display: none;
 }
 
 .hidden {
@@ -57,8 +62,4 @@ button:hover {
     align-items: center;
     display: none;
     margin: 0px 30%;
-}
-
-#answer {
-    display: none;
 }
