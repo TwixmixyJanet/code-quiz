@@ -16,15 +16,19 @@
 // WHEN the game is over
 // THEN I can save my initials and score
 
-//DOCUMENT CONNECTIONS
+// ~~~~~~~~~ DOM CONNECTIONS ~~~~~~~~~
+/////////////////////////////////////////////////////
+// .getElementById: Because this element is a timer, it's recommended to use getElementById because it's performance is generally regarded as faster
+var timeRemaining = document.getElementById("time-remaining");
+// .querySelector: Mostly used direct querySelector and created as many IDs I needed in the HTML to implement the JS where needed.
 var startButton = document.querySelector("#start-button");
 var header = document.querySelector("header");
 var checkScore = document.querySelector("#check-score");
-var timeRemaining = document.getElementById("time-remaining");
 var introContainer = document.querySelector("#intro-container");
 var quizContainer = document.querySelector("#quiz-container");
 var quizQuestion = document.querySelector("#quiz-question");
 var answerList = document.querySelector("#answer-list");
+// .querySelectorAll utilized so I could select all of the elements with a class of ".options"
 var answerOption = document.querySelectorAll(".options");
 var answer1 = document.querySelector("#answer1");
 var answer2 = document.querySelector("#answer2");
@@ -40,15 +44,20 @@ var highscores = document.querySelector("#highscores");
 var yourRecord = document.querySelector("#your-record");
 var returnButton = document.querySelector("#return-button");
 var clearResults = document.querySelector("#clear-results");
-//////////////////////////////////////////
+/////////////////////////////////////////////////////
 
-// GLOBAL VARIABLES
-var timeRemainingSecs = 50; // update to be more time when it's done
+// ~~~~~~~~~ GLOBAL VARIABLES ~~~~~~~~~
+/////////////////////////////////////////////////////
+// Time on the clock when the quiz begins
+var timeRemainingSecs = 60; 
+// Number of which question is being pulled from the array
 var questionNum = 0;
+// total score at end of quiz
 var total = 0;
+// Which question we are on
 var questionPlacement = 1;
 
-// QUESTIONS
+// QUESTIONS for the quiz, the array they are being pulled from.
 var questionArr = [
     {
         question: "Question 1",
@@ -76,6 +85,10 @@ var questionArr = [
         answer: "1"
     }
 ];
+/////////////////////////////////////////////////////
+
+// ~~~~~~~~~ FUNCTIONS ~~~~~~~~~
+/////////////////////////////////////////////////////
 
 // INITIATE THE QUIZ
 function initiateQuiz() {
@@ -87,6 +100,7 @@ function initiateQuiz() {
 }
 
 // TIMER ITERATION
+// setInterval method is being called with a function to decrement the time. timer function also communicates with the DOM to display remaining seconds and it updates every second. If the time remaining reaches zero, the timer is cleared and it executes the endGame function. Same occurs when all the questions are answered before the time runs out.
 function timer() {
     var timerIteration = setInterval(function() {
         timeRemainingSecs--;
@@ -94,7 +108,6 @@ function timer() {
 
         if (timeRemainingSecs <= 0) {
             clearInterval(timerIteration);
-            timeRemaining.textContent = `😢 Sorry! You're out of time.`
             scoreHeader.textContent = `That's all folks!`
             endGame();
         } else if (questionPlacement >= questionArr.length +1) {
@@ -207,21 +220,11 @@ function individualScore() {
     addScore(eachScore);
     highScoresList();
 };
+/////////////////////////////////////////////////////
 
-// EVENT LISTENERS
-startButton.addEventListener("click", initiateQuiz);
-
-answerOption.forEach(function(e) {
-    e.addEventListener("click", assessAnswer)
-});
-
-submitButton.addEventListener("click", function(e) {
-    e.preventDefault();
-    inputScore.style.display = "none";
-    quizContainer.style.display = "none";
-    highscores.style.display = "block";
-    individualScore();
-});
+// ~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~
+/////////////////////////////////////////////////////
+// View High Scores button
 checkScore.addEventListener("click",function(e) {
     e.preventDefault();
     inputScore.style.display = "none";
@@ -230,6 +233,25 @@ checkScore.addEventListener("click",function(e) {
     highscores.style.display = "block";
     highScoresList();
 });
+
+// Start Quiz button to initiate the quiz
+startButton.addEventListener("click", initiateQuiz);
+
+// Answer button
+answerOption.forEach(function(e) {
+    e.addEventListener("click", assessAnswer)
+});
+
+// Submit initials button
+submitButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    inputScore.style.display = "none";
+    quizContainer.style.display = "none";
+    highscores.style.display = "block";
+    individualScore();
+});
+
+// Return to game from High Scores button
 returnButton.addEventListener("click", function(e) {
     inputScore.style.display = "none";
     introContainer.style.display = "block";
@@ -237,8 +259,11 @@ returnButton.addEventListener("click", function(e) {
     highscores.style.display = "none";
     location.reload();
 });
+
+// Clear scores from High Scores
 clearResults.addEventListener("click", function(e) {
     e.preventDefault();
     localStorage.clear();
     highScoresList();
 });
+/////////////////////////////////////////////////////
