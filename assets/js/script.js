@@ -60,28 +60,28 @@ var questionPlacement = 1;
 // QUESTIONS for the quiz, the array they are being pulled from.
 var questionArr = [
     {
-        question: "Question 1",
-        options: ["1", "2. two", "3. three", "4. four"],
+        question: "Which one of these is a cat?",
+        options: ["1. 'MEOW'🐱", "2. 'BARK'🐶", "3. 'MOO'🐮", "4. 'TWEET'🐦"],
         answer: "1"
     },
     {
-        question: "Question 2",
-        options: ["1", "2. two", "3. three", "4. four"],
-        answer: "1"
+        question: "How many seconds was this quiz when it began?",
+        options: ["1. 12,000", "2. 60", "3. 3", "4. -40"],
+        answer: "2"
     },
     {
-        question: "Question 3",
-        options: ["1", "2. two", "3. three", "4. four"],
-        answer: "1"
+        question: "What is an iPhone?",
+        options: ["1. CAT", "2. DOG", "3. A smartphone made by Apple that combines a computer, iPod, digital camera, and cellular phone into one device.", "4. COW"],
+        answer: "3"
     },
     {
-        question: "Question 4",
-        options: ["1", "2. two", "3. three", "4. four"],
-        answer: "1"
+        question: "Why is there a leap day?",
+        options: ["1. Because jumping is fun!", "2. Sometimes there are conclusions and you just have to leap to them.", "3. FROG", "4. The Earth's orbit around the sun actually takes around 365.25 days - there is an extra one-fourth day. Thus, to align the calendar year and the solar year, we decided to add one day every four years. This is because 0.25 days taken four times (for four years) would add up to a full day."],
+        answer: "4"
     },
     {
-        question: "Question 5",
-        options: ["1", "2. two", "3. three", "4. four"],
+        question: "Why is the sky blue?",
+        options: ["1. The scattering caused by these tiny air molecules (known as Rayleigh scattering) increases as the wavelength of light decreases. Violet and blue light have the shortest wavelengths and red light has the longest. Therefore, blue light is scattered more than red light and the sky appears blue during the day.", "2. Someone painted it to be that way.", "3. Because we, as humans, get easily upset and blue is calming.", "4. Because it wanted to match the ocean."],
         answer: "1"
     }
 ];

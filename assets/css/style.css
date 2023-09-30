@@ -36,6 +36,11 @@ button {
     padding: 5px 10px;
 }
 
+.options {
+    width: 300px;
+    text-align: left;
+}
+
 button:hover {
     background-color: purple;
     color: azure;
