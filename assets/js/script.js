@@ -53,29 +53,29 @@ var questionArr = [
     {
         question: "Question 1",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "1. one",
+        answer: "1. one"
     },
     {
         question: "Question 2",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "2. two",
+        answer: "1. one"
     },
     {
         question: "Question 3",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "3. three",
+        answer: "1. one"
     },
     {
         question: "Question 4",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "4. four",
+        answer: "1. one"
     },
     {
         question: "Question 5",
         options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "4. four",
-    },
-]
+        answer: "1. one"
+    }
+];
 
 // INITIATE THE QUIZ
 function initiateQuiz() {
@@ -116,6 +116,7 @@ function displayQuestion (num) {
 
 // CONFIRM ANSWER
 function assessAnswer(e) {
+    console.log("did assessanswer run?")
     e.preventDefault();
     answer.style.display = "block";
     setTimeout (function() {
@@ -123,10 +124,12 @@ function assessAnswer(e) {
     }, 1000);
 
     if (questionArr[questionNum].answer == e.target.value) {
+        console.log("did if question correct run?")
         answer.textContent = "Bingo! (Correct)";
         total += 1;
 
     } else {
+        console.log("did if question wrong run?")
         timeRemainingSecs -= 5;
         answer.textContent = "Sorry, that's wrong."
     }

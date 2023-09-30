@@ -1,4 +1,4 @@
-body {
+main {
     display: flex;
     flex-direction: column;
 }
@@ -15,8 +15,11 @@ section {
     align-items: center;
 }
 
-.hidden {
-    display: none;
+#quiz-container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 ul {
@@ -26,8 +29,6 @@ ul {
 #answer-list {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-self: flex-start;
 }
 
 button {
@@ -40,11 +41,19 @@ button:hover {
     color: azure;
 }
 
+.hidden {
+    display: none;
+}
 #input-score {
     display: none;
 }
 #quiz-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     display: none;
+    margin: 0px 30%;
 }
 #highscores {
     display: none;
