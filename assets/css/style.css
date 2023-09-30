@@ -23,6 +23,13 @@ ul {
     list-style-type: none;
 }
 
+#answer-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-self: flex-start;
+}
+
 button {
     margin: 5px 0px;
     padding: 5px 10px;
@@ -31,4 +38,14 @@ button {
 button:hover {
     background-color: purple;
     color: azure;
+}
+
+#input-score {
+    display: none;
+}
+#quiz-container {
+    display: none;
+}
+#highscores {
+    display: none;
 }
