@@ -52,28 +52,28 @@ var questionPlacement = 1;
 var questionArr = [
     {
         question: "Question 1",
-        options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "1. one"
+        options: ["1", "2. two", "3. three", "4. four"],
+        answer: "1"
     },
     {
         question: "Question 2",
-        options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "1. one"
+        options: ["1", "2. two", "3. three", "4. four"],
+        answer: "1"
     },
     {
         question: "Question 3",
-        options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "1. one"
+        options: ["1", "2. two", "3. three", "4. four"],
+        answer: "1"
     },
     {
         question: "Question 4",
-        options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "1. one"
+        options: ["1", "2. two", "3. three", "4. four"],
+        answer: "1"
     },
     {
         question: "Question 5",
-        options: ["1. one", "2. two", "3. three", "4. four"],
-        answer: "1. one"
+        options: ["1", "2. two", "3. three", "4. four"],
+        answer: "1"
     }
 ];
 

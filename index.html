@@ -31,12 +31,12 @@
             <h1>
                 Janet's Code Quiz
             </h1>
-            <p class="instructions">Click "Start Quiz" to begin.This is a timed quiz and for each incorrect answer time will be deducted.</p>
+            <p class="instructions">Click "Start Quiz" to begin. This is a timed quiz and for each incorrect answer time will be deducted.</p>
             <button class="button" id="start-button">Start Quiz</button>
         </section>
 
         <section class="quiz-container" id="quiz-container">
-            <div>
+            <div class="flex-container">
                 <h2 id="quiz-question">Place Question Here</h2>
                 <ul id="answer-list">
                     <li><button class="options button" id="answer1">1. Answer</button></li>
@@ -49,19 +49,23 @@
         </section>
 
         <section class="input-score" id="input-score">
-            <h2 id="score-header">That's a wrap!</h2>
-            <p id="your-score">Your score is: </p>
-            <p>Input Initials:
-                <input type="text" id="input-initials">
-                <button class="btn" id="submit-button">Submit</button>
-            </p>
+            <div class="flex-container">
+                <h2 id="score-header">That's a wrap!</h2>
+                <p id="your-score">Your score is: </p>
+                <p>Input Initials:
+                    <input type="text" id="input-initials">
+                    <button class="btn" id="submit-button">Submit</button>
+                </p>
+            </div>
         </section>
 
         <section class="highscores" id="highscores">
-            <h2>High Scores</h2>
-            <p id="your-record">Your high scores</p>
-            <button class="button" id="return-button">Return to game</button>
-            <button class="button" id="clear-results">Clear Results</button>
+            <div class="flex-container">
+                <h2>High Scores</h2>
+                <p id="your-record">Your high scores</p>
+                <button class="button" id="return-button">Return to game</button>
+                <button class="button" id="clear-results">Clear Results</button>
+            </div>
         </section>
     </main>
 

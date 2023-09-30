@@ -15,7 +15,7 @@ section {
     align-items: center;
 }
 
-#quiz-container div {
+.flex-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -44,10 +44,8 @@ button:hover {
 .hidden {
     display: none;
 }
-#input-score {
-    display: none;
-}
-#quiz-container {
+
+#quiz-container, #input-score, #highscores {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,9 +53,7 @@ button:hover {
     display: none;
     margin: 0px 30%;
 }
-#highscores {
-    display: none;
-}
+
 #answer {
     display: none;
 }
