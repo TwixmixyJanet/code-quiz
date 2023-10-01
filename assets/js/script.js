@@ -62,27 +62,27 @@ var questionArr = [
     {
         question: "Which one of these is a cat?",
         options: ["1. 'MEOW'🐱", "2. 'BARK'🐶", "3. 'MOO'🐮", "4. 'TWEET'🐦"],
-        answer: "1"
+        answer: "1. 'MEOW'🐱"
     },
     {
         question: "How many seconds was this quiz when it began?",
         options: ["1. 12,000", "2. 60", "3. 3", "4. -40"],
-        answer: "2"
+        answer: "2. 60"
     },
     {
         question: "What is an iPhone?",
         options: ["1. CAT", "2. DOG", "3. A smartphone made by Apple that combines a computer, iPod, digital camera, and cellular phone into one device.", "4. COW"],
-        answer: "3"
+        answer: "3. A smartphone made by Apple that combines a computer, iPod, digital camera, and cellular phone into one device."
     },
     {
         question: "Why is there a leap day?",
         options: ["1. Because jumping is fun!", "2. Sometimes there are conclusions and you just have to leap to them.", "3. FROG", "4. The Earth's orbit around the sun actually takes around 365.25 days - there is an extra one-fourth day. Thus, to align the calendar year and the solar year, we decided to add one day every four years. This is because 0.25 days taken four times (for four years) would add up to a full day."],
-        answer: "4"
+        answer: "4. The Earth's orbit around the sun actually takes around 365.25 days - there is an extra one-fourth day. Thus, to align the calendar year and the solar year, we decided to add one day every four years. This is because 0.25 days taken four times (for four years) would add up to a full day."
     },
     {
         question: "How many ways are there to pet a cat?",
         options: ["1. ♾️", "2. No way!", "3. Don't bite me, kitty!", "4. With consent"],
-        answer: "4"
+        answer: "4. With consent"
     }
 ];
 /////////////////////////////////////////////////////
@@ -131,7 +131,6 @@ function displayQuestion (num) {
 
 // CONFIRM ANSWER
 function assessAnswer(e) {
-    console.log("did assessanswer run?")
     // e.preventDefault implemented to prevent the default action of clicking on a button. 
     e.preventDefault();
     // displays if the user got the previous answer correct or not, then the setTimeout removes it after a second.
@@ -140,17 +139,13 @@ function assessAnswer(e) {
         answer.style.display = "none";
     }, 1000);
 
-    var correctAnswer = (answerOption === questionArr[questionNum].answer);
-
     // This is SUPPOSED to go into the array and find the answer for the corresponding question and check to see if the person clicked the correct one.
-    if (correctAnswer) {
-        console.log("did if question CORRECT run?")
+    if (questionArr[questionNum].answer == e.target.innerText) {
         answer.textContent = "Bingo! (Correct)";
         total = timeRemainingSecs;
 
     // otherwise, the question is wrong and it reduces the time by 5 seconds and lets the user know it's wrong by displaying text.    
     } else {
-        console.log("did if question WRONG run?")
         timeRemainingSecs -= 5;
         answer.textContent = "Sorry, that's wrong."
     }
@@ -173,7 +168,6 @@ function endGame() {
     quizContainer.style.display = "none";
     timeRemaining.style.display = "none";
     inputScore.style.display = "block";
-    // console.log(inputScore);
     yourScore.textContent = `Your score is: ${total}`;
 };
 
@@ -206,8 +200,6 @@ function highScoresList() {
         li.textContent = `${placement.user} - ${placement.score}`
         li.setAttribute("data-index", i);
         yourRecord.appendChild(li);
-        // QUESTION: This automatically places them into an UL, is there a way to do this into an OL?
-        // instead on the HTML I just force it to be placed into an OL.
     }
 };
 
