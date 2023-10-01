@@ -142,21 +142,23 @@ function assessAnswer(e) {
 
     // This is SUPPOSED to go into the array and find the answer for the corresponding question and check to see if the person clicked the correct one.
     if (questionArr[questionNum].answer) {
-        console.log("did if question correct run?")
+        console.log("did if question CORRECT run?")
         answer.textContent = "Bingo! (Correct)";
         total = timeRemainingSecs;
 
     // otherwise, the question is wrong and it reduces the time by 5 seconds and lets the user know it's wrong by displaying text.    
     } else {
-        console.log("did if question wrong run?")
+        console.log("did if question WRONG run?")
         timeRemainingSecs -= 5;
         answer.textContent = "Sorry, that's wrong."
     }
 
-    // Haven't been able to test this yet as I can't get the correct answers to function.
+    // The above is broken right now, BUT...
+    // So long as the question we are on is less than the length of the array, then it will display the next question.
     if (questionNum < questionArr.length -1) {
         displayQuestion(questionNum +1);
     } else {
+        // Otherwise it'll end the game
         endGame();
     }
     // Increments to the next question
@@ -165,38 +167,12 @@ function assessAnswer(e) {
 
 // END THE GAME
 function endGame() {
+    // change the displays so other sections disappear and inputScore appears. Displays score total after game is complete.
     quizContainer.style.display = "none";
     timeRemaining.style.display = "none";
     inputScore.style.display = "block";
     // console.log(inputScore);
     yourScore.textContent = `Your score is: ${total}`;
-};
-
-// RETRIEVE RESULTS
-function retrieveResult() {
-    var resultsList = localStorage.getItem("resultsList");
-    if (resultsList !== null) {
-        newList = JSON.parse(resultsList);
-        return newList;
-    } else {
-        newList = [];
-    }
-    return newList;
-};
-
-// HIGH SCORES
-function highScoresList() {
-    yourRecord.innerHTML = "";
-    yourRecord.style.display = "block";
-    var highScoresResults = orderListSort();
-    var topScores = highScoresResults.slice(0,10);
-    for (let i = 0; i < topScores.length; i++) {
-        var placement = topScores[i];
-        var li = document.createElement("li");
-        li.textContent = `${placement.user} - ${placement.score}`
-        li.setAttribute("data-index", i);
-        yourRecord.appendChild(li);
-    }
 };
 
 // SORT SCORES
@@ -212,14 +188,50 @@ function orderListSort() {
     }
 };
 
+// HIGH SCORES
+// 
+function highScoresList() {
+    // writes directly into the <p> element of the highscores section
+    yourRecord.innerHTML = "";
+    yourRecord.style.display = "block";
+    // calls on the orderSortList to sort the highscore results, then slices the top 10 to display.
+    var highScoresResults = orderListSort();
+    var topScores = highScoresResults.slice(0,10);
+    // Iterative loop to list the scores according to their placement from the sort function. Creates and appends element to display.
+    for (let i = 0; i < topScores.length; i++) {
+        var placement = topScores[i];
+        var li = document.createElement("li");
+        li.textContent = `${placement.user} - ${placement.score}`
+        li.setAttribute("data-index", i);
+        yourRecord.appendChild(li);
+        // QUESTION: This automatically places them into an UL, is there a way to do this into an OL?
+        // instead on the HTML I just force it to be placed into an OL.
+    }
+};
+
 // ADD SCORES
+// Start by retrieving the score results, then push(add) the new score, then store the results.
 function addScore(num) {
     var compiledScores = retrieveResult();
     compiledScores.push(num);
     localStorage.setItem("resultsList", JSON.stringify(compiledScores));
 };
 
+// RETRIEVE RESULTS
+// retrieveResults will execute when adding a score and when sorting the score list. List will be retrieved from localStorage. If the results is NOT empty then it'll parse the list and display it. Else it will initiate a new list.
+function retrieveResult() {
+    var resultsList = localStorage.getItem("resultsList");
+    if (resultsList !== null) {
+        newList = JSON.parse(resultsList);
+        return newList;
+    } else {
+        newList = [];
+    }
+    return newList;
+};
+
 // EACH SCORE
+// Generate the user's initials along with their score, then pass off to the addScore and highscores
 function individualScore() {
     var eachScore = {
         user: inputInitials.value,
@@ -233,6 +245,7 @@ function individualScore() {
 // ~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~
 /////////////////////////////////////////////////////
 // View High Scores button
+// show/hide elements on the DOM and initiate the highscores function
 checkScore.addEventListener("click",function(e) {
     e.preventDefault();
     inputScore.style.display = "none";
@@ -269,6 +282,7 @@ returnButton.addEventListener("click", function(e) {
 });
 
 // Clear scores from High Scores
+// fun little button to clear the local storage
 clearResults.addEventListener("click", function(e) {
     e.preventDefault();
     localStorage.clear();
