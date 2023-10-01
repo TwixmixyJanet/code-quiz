@@ -80,9 +80,9 @@ var questionArr = [
         answer: "4"
     },
     {
-        question: "Why is the sky blue?",
-        options: ["1. The scattering caused by these tiny air molecules (known as Rayleigh scattering) increases as the wavelength of light decreases. Violet and blue light have the shortest wavelengths and red light has the longest. Therefore, blue light is scattered more than red light and the sky appears blue during the day.", "2. Someone painted it to be that way.", "3. Because we, as humans, get easily upset and blue is calming.", "4. Because it wanted to match the ocean."],
-        answer: "1"
+        question: "How many ways are there to pet a cat?",
+        options: ["1. ♾️", "2. No way!", "3. Don't bite me, kitty!", "4. With consent"],
+        answer: "4"
     }
 ];
 /////////////////////////////////////////////////////
