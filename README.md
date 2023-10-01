@@ -1,6 +1,6 @@
 # JANET'S CODE QUIZ
 ### [View Project Here](https://twixmixyjanet.github.io/code-quiz/ "Code Quiz")<br />
-![image of password generator](img/projectimage.png "image of Password Generator app")
+![image of password generator](assets/img/projectimage.png "image of Password Generator app")
 | Technology Used    | Resource URL |
 | --------  | ------- |
 | HTML      | https://developer.mozilla.org/en-US/docs/Web/HTML |
@@ -51,19 +51,25 @@ How to use this app:
 
 ### Lessons Learned
 
-#### Selecting the proper DOM elements
+#### 1. Selecting the proper DOM elements
 The difference between selecting using querySelector and querySelectorAll to ensure the JS affects the DOM. In this example .options needed to be "All" so that it could select all elements with the class of ".options".<br />
 ![lesson 1](assets/img/lesson1.png)
 
-#### Style display from "none" to "block" to "none"
+#### 2. Style display from "none" to "block" to "none"
 With all of the elements existing on the same page, a lot of the section elements relied on having a style property for them to display or not. For basically every function in the JS, it's needed to update if these elements do or do not display. <br />
 ![lesson 2](assets/img/lesson2.png)
 
-#### The Timer!!
-A huge element of this project relied on the timer. 
+#### 3. The Timer!!
+A huge element of this project relied on the timer. I practiced with the 99 bottles of beer on the wall by adding a timer to that. The additional component I had to work out was what to do if the seconds ran out or all of the questions were completed. <br />
+![lesson 3](assets/img/lesson3.png)
+
+#### 4. Assess The Answer
+TBD <br />
+![lesson 3](assets/img/lesson3.png)
 
 #### Synopsis
-Overall this project required a LOT of research and even more debugging to get things right. As much as possible I attempted to use console.log to check my work to affirm what my code was doing. I also utilized the help of a tutor to review my work and help me fix bugs I couldn't find on my own.
+Even more were learned than above, but I wanted to highlight a a few of my favorites. Overall this project required a LOT of research and even more debugging to get things right. As much as possible I attempted to use console.log to check my work to affirm what my code was doing. I also utilized the help of a tutor to review my work and help me fix bugs I couldn't find on my own. <br /><br />
+P.S. I figured out how to preview the README in VSCode this past week, so now I don't have to push to GitHub to see how it looks.
 
 ## Installation
 
@@ -76,7 +82,7 @@ Overall this project required a LOT of research and even more debugging to get t
 
 ## Usage
 
-This is a password generator designed to produce a randomly generated password through various criteria. If you would like to use this app follow the installation steps and curate it to your needs. If you would like to use this app to generate a password, follow the steps under the description above and click the link at the top of this page.
+This is a code quiz app which gives the user a timed quiz of preset questions and answers. If you would like to use this app follow the installation steps and curate it to your needs. If you would like to use this app to quiz your knowledge, follow the steps under the description above and click the link at the top of this page.
 
 ## License
 

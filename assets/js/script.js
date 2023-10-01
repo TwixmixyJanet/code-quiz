@@ -104,6 +104,7 @@ function initiateQuiz() {
 function timer() {
     var timerIteration = setInterval(function() {
         timeRemainingSecs--;
+        // using backtick comments so I don't have to concatinate
         timeRemaining.textContent = `Time remaining: ${timeRemainingSecs}s`;
 
         if (timeRemainingSecs <= 0) {
@@ -115,7 +116,7 @@ function timer() {
             endGame();
             }
     }, 1000);
-}
+};
 
 // INIIATE QUESTIONS
 // Function to populate the questions/answers to the DOM, set up with an index argument to pass through the questions array. This function keeps track of which question we are on.
