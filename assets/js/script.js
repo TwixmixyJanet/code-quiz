@@ -150,7 +150,6 @@ function assessAnswer(e) {
         answer.textContent = "Sorry, that's wrong."
     }
 
-    // The above is broken right now, BUT...
     // So long as the question we are on is less than the length of the array, then it will display the next question.
     if (questionNum < questionArr.length -1) {
         displayQuestion(questionNum +1);
@@ -172,6 +171,7 @@ function endGame() {
 };
 
 // SORT SCORES
+// Function to sort the highscore list. If the list of scores is empty, return it. Otherwise grab the retrieved list and sort using the a,b callback function and return it sorted b to a.
 function orderListSort() {
     var unorderedList = retrieveResult();
     if (retrieveResult == null) {

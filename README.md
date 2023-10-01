@@ -64,11 +64,11 @@ A huge element of this project relied on the timer. I practiced with the 99 bott
 ![lesson 3](assets/img/lesson3.png)
 
 #### 4. Assess The Answer
-TBD <br />
-![lesson 3](assets/img/lesson3.png)
+This function was the trickiest one to write. The main factor was the if state to see if they answer correct or not. I wanted to keep this simple as possible, so I took the question array => question number => answer and eqauted it to e.target.innerText. I found the solution of what to properly equate it to with the help of the tutor. Then I just had to make sure my question array answer string text was exactly the same as the option. Then another if statement was used to increment to the next question. Studying this with my tutor he mentioned I may have over-engineered the AssessAnswer function a bit, but it works, so for now it's good!<br />
+![lesson 4](assets/img/lesson4.png)
 
 #### Synopsis
-Even more were learned than above, but I wanted to highlight a a few of my favorites. Overall this project required a LOT of research and even more debugging to get things right. As much as possible I attempted to use console.log to check my work to affirm what my code was doing. I also utilized the help of a tutor to review my work and help me fix bugs I couldn't find on my own. <br /><br />
+Even more lessons were learned than above, but I wanted to highlight a a few of my favorites. Overall this project required a LOT of research and even more debugging to get things right. As much as possible I attempted to use console.log to check my work to affirm what my code was doing. I also utilized the help of a tutor to review my work and help me fix bugs I couldn't find on my own. <br /><br />
 P.S. I figured out how to preview the README in VSCode this past week, so now I don't have to push to GitHub to see how it looks.
 
 ## Installation
