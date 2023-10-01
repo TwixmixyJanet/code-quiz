@@ -140,8 +140,10 @@ function assessAnswer(e) {
         answer.style.display = "none";
     }, 1000);
 
+    var correctAnswer = (answerOption === questionArr[questionNum].answer);
+
     // This is SUPPOSED to go into the array and find the answer for the corresponding question and check to see if the person clicked the correct one.
-    if (questionArr[questionNum].answer) {
+    if (correctAnswer) {
         console.log("did if question CORRECT run?")
         answer.textContent = "Bingo! (Correct)";
         total = timeRemainingSecs;
